@@ -9,19 +9,29 @@ repositories {
     mavenCentral()
 }
 
-//нужно для винды, так как руские шаги не будут найдены
+//нужно для винды, так как русcкие шаги не будут найдены
 compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     testImplementation 'io.cucumber:cucumber-java:7.1.0'
-    testImplementation 'com.codeborne:selenide:6.13.0'
+    testImplementation 'com.codeborne:selenide:6.18.0'
     testImplementation 'io.cucumber:cucumber-junit:7.1.0'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.0'
+    testImplementation 'com.codeborne:selenide-selenoid:6.15.0'
+    compileOnly 'info.cukes:cucumber-jvm-deps:1.0.5'
 }
 
 test {
