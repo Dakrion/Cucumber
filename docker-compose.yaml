@@ -8,7 +8,7 @@ services:
     networks:
       stargate: null
     volumes:
-      - "D:\\Docker\\selenoid:/etc/selenoid"
+      - "./selenoid:/etc/selenoid"
       - "/var/run/docker.sock:/var/run/docker.sock"
 
     command: [ "-conf", "/etc/selenoid/browsers.json", "-log-output-dir", "/opt/selenoid/logs", "-container-network", "selenoid-dev", "-limit", "10" ]
