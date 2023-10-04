@@ -30,7 +30,7 @@ services:
       - selenoid
       - selenoid-ui
     container_name: run-tests
-    command: sh -c "cd /app && gradle clean test"
+    command: sh -c "cd /app && gradle clean test -Pprofile=remote -i"
     networks:
       - stargate
 

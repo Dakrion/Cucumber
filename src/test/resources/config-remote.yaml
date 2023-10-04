@@ -1,0 +1,8 @@
+browser:
+  name: chrome
+  version: 116.0
+  size: 1920x1080
+  enableVNC: true
+base:
+  url: http://selenoid:4444/wd/hub
+  timeout: 60000
